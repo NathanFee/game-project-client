@@ -7,5 +7,17 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  const events = require('./events.js')
+
+  $(() => {
+    $('#0').on('click', events.onClickTile)
+    $('#1').on('click', events.onClickTile)
+    $('#2').on('click', events.onClickTile)
+    $('#3').on('click', events.onClickTile)
+    $('#4').on('click', events.onClickTile)
+    $('#5').on('click', events.onClickTile)
+    $('#6').on('click', events.onClickTile)
+    $('#7').on('click', events.onClickTile)
+    $('#8').on('click', events.onClickTile)
+  })
 })
