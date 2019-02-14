@@ -21,7 +21,7 @@ WED 2/19 - Final Touches
 ## User Stories
 I tried to create my user stories based on the requirements to ensure I was focused on what was important for the assignment.
 
-
+```
 1. As a user, I want to be able to sign-up, sign-in and log-out of my own account.
 2. As a user, I want all forms to clear after I fill them to protect my information.
 3. As a user, I want to be notified all actions, including successful/failed actions.
@@ -32,9 +32,20 @@ I tried to create my user stories based on the requirements to ensure I was focu
 8. As a user, I want to be able to see if I won, lost or tied my opponent.
 9.  As a user, I want to be able to see how many games I've won and lost.
 10.  As a user, I want to be able to start a new game.
+```
 
 ## Wireframes
 I wanted to make my design simple to keep my focus on functionality over appearance. I also prefer a simple clean look.
 
 [Sign-In/Out & Home Wireframes](https://i.imgur.com/XWsN3af.jpg)
 [Game and Settings Wireframes](https://i.imgur.com/km7X8GW.jpg)
+
+## Technologies Used
+```
+1. Atom
+2. Be Focused (pomodoro app)
+3. HTML
+4. CSS
+5. Javascript
+6. Bootstrap
+```
