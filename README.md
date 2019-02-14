@@ -39,6 +39,7 @@ I wanted to make my design simple to keep my focus on functionality over appeara
 
 [Sign-In/Out & Home Wireframes](https://i.imgur.com/XWsN3af.jpg)
 [Game and Settings Wireframes](https://i.imgur.com/km7X8GW.jpg)
+[Mobile Wireframe](https://i.imgur.com/kk9n3Mr.jpg)
 
 ## Technologies Used
 ```
