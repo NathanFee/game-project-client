@@ -1,10 +1,10 @@
 'use strict'
 
-const markTile = function (tileID) {
-  console.log('Marked Tile')
-  $('#' + tileID).html('<h1>X</h1>')
+const markCellUi = function (cellID, playersMark) {
+  console.log('Marked cell')
+  $('#' + cellID).html(`<h1>${playersMark}</h1>`)
 }
 
 module.exports = {
-  markTile
+  markCellUi
 }

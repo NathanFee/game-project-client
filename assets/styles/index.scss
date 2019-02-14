@@ -2,8 +2,8 @@
 
 $font-color: #fff;
 $background-color: #fff;
-$tile-color: #D3D3D3;
-$tile-border: #fff;
+$cell-color: #D3D3D3;
+$cell-border: #fff;
 $title-color: #ff0000;
 
 body {
@@ -15,19 +15,15 @@ header {
   justify-content: center;
 }
 
-h1 {
-  color: $title-color;
-}
-
 h4 {
   color: $font-color;
 }
 
-.tile {
+.cell {
   align-items: center;
-  background-color: $tile-color;
-  border: 1px solid ;
-  color: $font-color;
+  background-color: $cell-color;
+  border: 1px solid $cell-border;
+  color: red;
   display: flex;
   height: 160px;
   justify-content: center;
