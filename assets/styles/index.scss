@@ -1,1 +1,34 @@
 @import '~bootstrap/scss/bootstrap';
+
+$font-color: #fff;
+$background-color: #fff;
+$tile-color: #D3D3D3;
+$tile-border: #fff;
+$title-color: #ff0000;
+
+body {
+  background-color: $background-color;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: $title-color;
+}
+
+h4 {
+  color: $font-color;
+}
+
+.tile {
+  align-items: center;
+  background-color: $tile-color;
+  border: 1px solid ;
+  color: $font-color;
+  display: flex;
+  height: 160px;
+  justify-content: center;
+}
