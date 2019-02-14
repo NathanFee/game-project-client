@@ -3,7 +3,13 @@
 ## Planning
 I plan to follow the provided schedule setting aside. With exeption of the game engine, I will allow for one day for each component. As I anticipate the game engine itself may be challenging, I allowed for two days its completion. If i complete a component early I will move onto the next. Each component will be further broken down as outlined, focusing on one aspect of the project at a time.
 
-I also plan to use the pomodoro method using a free app called "Be Focused," to avoid burnout.
+I will break up the Javascript files as was recomended into app.js, events.js, api.js, and ui.js. I will also break up the CSS files to have one for color variables. This will help keep my code modular.
+
+I think I will try to reprsent the game as an object that has an array for the board. I may fill the array initially with -1s to allow for an easy test case to see if the space is emtpty before adding the correct character to the array.
+
+I will focus on extra flare or creative spin last, functionality and requirements come first.
+
+I also plan to using the pomodoro method using a free app called "Be Focused," to avoid burnout.
 
 ## Schedule
 [Provided Schedule](https://git.generalassemb.ly/ga-wdi-boston/game-project/blob/master/schedule.md)
@@ -19,6 +25,7 @@ WED 2/19 - Final Touches
 
 
 ## User Stories
+[Requirements](https://git.generalassemb.ly/ga-wdi-boston/game-project/blob/master/requirements.md)
 I tried to create my user stories based on the requirements to ensure I was focused on what was important for the assignment.
 
 ```
