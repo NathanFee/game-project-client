@@ -13,7 +13,7 @@ I also plan to using the pomodoro method using a free app called "Be Focused," t
 
 ## Schedule
 [Provided Schedule](https://git.generalassemb.ly/ga-wdi-boston/game-project/blob/master/schedule.md)
-
+```
 WED 2/13 - Complete Planning and Set Up
 THU 2/14 - Game UI Round 1
 FRI 2/15 - Game Engine
@@ -22,7 +22,7 @@ SUN 2/17 - Game UI Round 2
 MON 2/18 - Authentication
 TUE 2/19 - Game API
 WED 2/19 - Final Touches
-
+```
 
 ## User Stories
 [Requirements](https://git.generalassemb.ly/ga-wdi-boston/game-project/blob/master/requirements.md)
