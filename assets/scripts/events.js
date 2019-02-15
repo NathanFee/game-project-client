@@ -10,57 +10,64 @@ const game = {
   player_x: {
     id: 0,
     email: 'player_x@gmail.com',
-    turn: true
+    mark: 'X',
+    moves: []
   },
-  player_o: null,
-  xMoves: [],
-  oMoves: []
+  player_o: {
+    id: 1,
+    email: 'player_x@gmail.com',
+    mark: 'O',
+    moves: []
+  },
+  player_xTurn: true,
+  getCurrentPlayer: function () {
+    return this.player_xTurn ? this.player_x : this.player_o
+  }
 }
+// Test Game --------------------------------
 
 const winningCombinations = [
-['2', '1', '0'],
-['3', '4', '5'],
-['6', '7', '8'],
-['8', '4', '0'],
-['2', '4', '6'],
-['6', '3', '0'],
-['1', '4', '7'],
-['2', '5', '8']]
-// Test Game --------------------------------
+  ['2', '1', '0'],
+  ['3', '4', '5'],
+  ['6', '7', '8'],
+  ['8', '4', '0'],
+  ['2', '4', '6'],
+  ['6', '3', '0'],
+  ['1', '4', '7'],
+  ['2', '5', '8']]
 
 const onClickCell = function (event) {
   const cellID = event.target.id
   markCell(cellID, game)
 }
 
-const checkWinner = function (game, turn) {
+const checkWinner = function (player) {
   let win = false
-  if (game.player_x.turn) {
-    // check to see if x wins
-    win = winningCombinations.some((combo) => combo.every(num => game.xMoves.includes(num)))
-  } else {
-    // check to see if o wins
-    win = winningCombinations.some((combo) => combo.every(num => game.oMoves.includes(num)))
-  }
+  // check to see if current player has won
+  win = winningCombinations.some((combo) => combo.every(num => player.moves.includes(num)))
+  // if there is a winner, end the game
+  win ? game.over = true : game.over = false
   return win
 }
 
+const checkDraw = (game) => !game.cells.includes(' ') && (game.over = true)
+
 const markCell = function (cellID, game) {
-  // Check if the cell is empty
-  if (game.cells[cellID] === ' ') {
-    // Get the mark of the current player
-    const playersMark = game.player_x.turn ? 'X' : 'O'
+  const player = game.getCurrentPlayer()
+  // Check if the cell is empty & the game isn't over
+  if (game.cells[cellID] === ' ' && !game.over) {
     // Fill the cell array with the players mark
-    game.cells[cellID] = playersMark
-    console.log(game.cells)
+    game.cells[cellID] = player.mark
     // Store the cell index in the players moves array
-    game.player_x.turn ? game.xMoves.push(cellID) : game.oMoves.push(cellID)
+    player.moves.push(cellID)
     // Mark cell in ui with player mark
-    ui.markCellUi(cellID, playersMark)
-    // Check for a winner
-    checkWinner(game) ? console.log('We have a Winner') : console.log('No Winner Yet')
+    ui.markCellUi(cellID, player.mark)
+    // If player won, notify user
+    checkWinner(player) && console.log(`${player.mark} wins`)
+    // If draw, notify user
+    checkDraw(game) && console.log('Draw')
     // Switch turns
-    game.player_x.turn = !(game.player_x.turn)
+    game.player_xTurn ? game.player_xTurn = false : game.player_xTurn = true
   }
 }
 
