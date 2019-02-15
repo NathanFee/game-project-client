@@ -63,9 +63,9 @@ const markCell = function (cellID, game) {
     // Mark cell in ui with player mark
     ui.markCellUi(cellID, player.mark)
     // If player won, notify user
-    checkWinner(player) && console.log(`${player.mark} wins`)
+    checkWinner(player) && ui.notifyUser(`${player.mark} wins`)
     // If draw, notify user
-    checkDraw(game) && console.log('Draw')
+    checkDraw(game) && ui.notifyUser('The Game is a Draw')
     // Switch turns
     game.player_xTurn ? game.player_xTurn = false : game.player_xTurn = true
   }
