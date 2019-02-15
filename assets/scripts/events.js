@@ -2,10 +2,11 @@
 
 const getFormFields = require('../../lib/get-form-fields.js')
 const ui = require('./ui.js')
+const api = require('./api.js')
 
 // Test Game --------------------------------
 const game = {
-  cells: [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '],
+  cells: ['', '', '', '', '', '', '', '', ''],
   over: false,
   player_x: {
     id: 0,
@@ -36,6 +37,10 @@ const winningCombinations = [
   ['1', '4', '7'],
   ['2', '5', '8']]
 
+const onNewGame = function () {
+  api.createNewGame()
+}
+
 const onClickCell = function (event) {
   const cellID = event.target.id
   markCell(cellID, game)
@@ -61,12 +66,12 @@ const switchTurn = function (game) {
 }
 
 // if there are no empty spaces, the game is a draw, end game.
-const checkDraw = (game) => !game.cells.includes(' ') && (game.over = true)
+const checkDraw = (game) => !game.cells.includes('') && (game.over = true)
 
 const markCell = function (cellID, game) {
   const player = game.getCurrentPlayer()
   // Check if the cell is empty & the game isn't over
-  if (game.cells[cellID] === ' ' && !game.over) {
+  if (!game.cells[cellID] && !game.over) {
     // Fill the cell array with the players mark
     game.cells[cellID] = player.mark
     // Store the cell index in the players moves array
@@ -79,10 +84,13 @@ const markCell = function (cellID, game) {
     checkDraw(game) && ui.notifyUser('The Game is a Draw!')
     // If the game is not over, switch turn
     !game.over && switchTurn(game)
+  } else {
+    !game.over && ui.notifyUser('Invalid Selection')
   }
 }
 
 module.exports = {
   getFormFields,
-  onClickCell
+  onClickCell,
+  onNewGame
 }
