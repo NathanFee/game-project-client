@@ -50,6 +50,17 @@ const checkWinner = function (player) {
   return win
 }
 
+const switchTurn = function (game) {
+  if (game.player_xTurn) {
+    game.player_xTurn = false
+    ui.notifyUser(`Player ${game.player_o.mark} it's you turn`)
+  } else {
+    game.player_xTurn = true
+    ui.notifyUser(`Player ${game.player_x.mark} it's you turn`)
+  }
+}
+
+// if there are no empty spaces, the game is a draw, end game.
 const checkDraw = (game) => !game.cells.includes(' ') && (game.over = true)
 
 const markCell = function (cellID, game) {
@@ -63,11 +74,11 @@ const markCell = function (cellID, game) {
     // Mark cell in ui with player mark
     ui.markCellUi(cellID, player.mark)
     // If player won, notify user
-    checkWinner(player) && ui.notifyUser(`${player.mark} wins`)
+    checkWinner(player) && ui.notifyUser(`Game Over. ${player.mark} Wins!`)
     // If draw, notify user
-    checkDraw(game) && ui.notifyUser('The Game is a Draw')
-    // Switch turns
-    game.player_xTurn ? game.player_xTurn = false : game.player_xTurn = true
+    checkDraw(game) && ui.notifyUser('The Game is a Draw!')
+    // If the game is not over, switch turn
+    !game.over && switchTurn(game)
   }
 }
 
