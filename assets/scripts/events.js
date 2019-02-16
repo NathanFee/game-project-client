@@ -3,6 +3,7 @@
 const getFormFields = require('../../lib/get-form-fields.js')
 const ui = require('./ui.js')
 const api = require('./api.js')
+const store = require('./store.js')
 
 // Test Game --------------------------------
 const game = {
@@ -37,8 +38,22 @@ const winningCombinations = [
   ['1', '4', '7'],
   ['2', '5', '8']]
 
-const onNewGame = function () {
+const onNewGame = function (event) {
+  event.preventDefault()
+  // creat new game
   api.createNewGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
+const onGetGame = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.getGame(formData.game.id)
+    .then(ui.getGameSuccess)
+    .catch(ui.getGameFailure)
 }
 
 const onClickCell = function (event) {
@@ -93,5 +108,6 @@ const markCell = function (cellID, game) {
 module.exports = {
   getFormFields,
   onClickCell,
-  onNewGame
+  onNewGame,
+  onGetGame
 }
