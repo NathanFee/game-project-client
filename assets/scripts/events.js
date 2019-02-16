@@ -81,10 +81,11 @@ const markCell = function (cellID, game) {
     // If player won, notify user
     checkWinner(player) && ui.notifyUser(`Game Over. ${player.mark} Wins!`)
     // If draw, notify user
-    checkDraw(game) && ui.notifyUser('The Game is a Draw!')
+    !game.over && checkDraw(game) && ui.notifyUser('The Game is a Draw!')
     // If the game is not over, switch turn
     !game.over && switchTurn(game)
   } else {
+    // The selection was invalid, notify user
     !game.over && ui.notifyUser('Invalid Selection')
   }
 }
