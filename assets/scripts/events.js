@@ -84,8 +84,6 @@ const markCell = function (cellID, game) {
     // The selection was invalid, notify user
     !game.over && ui.notifyUser('Invalid Selection')
   }
-  onGetGames()
-  console.log(store.user)
 }
 
 module.exports = {

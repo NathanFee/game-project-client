@@ -38,7 +38,6 @@ const updateGamesFailure = function () {
 
 const getGamesSuccess = function (responseData) {
   console.log('Got Games!')
-  console.log(responseData.games)
   store.user.games = responseData.games
 }
 
