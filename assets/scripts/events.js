@@ -16,8 +16,9 @@ const winningCombinations = [
   ['2', '5', '8']]
 
 const onNewGame = function (event) {
+  // prevent refresh after button click
   event.preventDefault()
-  // creat new game
+
   api.createNewGame()
     .then(ui.newGameSuccess)
     .catch(ui.newGameFailure)
@@ -51,10 +52,14 @@ const checkWinner = function (player, game) {
 
 const switchTurn = function (game) {
   if (game.player_xTurn) {
+    // it was players_x'x turn so now its not
     game.player_xTurn = false
+    // notify player_o that its thier turn
     ui.notifyUser(`Player ${game.player_o.mark} it's you turn`)
   } else {
+    // it was player_o's turn now its player_x's turn
     game.player_xTurn = true
+    // notify player_x that its thier turn
     ui.notifyUser(`Player ${game.player_x.mark} it's you turn`)
   }
 }
