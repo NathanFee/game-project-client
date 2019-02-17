@@ -23,15 +23,21 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
+const onClickCell = function (event) {
+  const cellID = event.target.id
+  markCell(cellID, store.user.game)
+}
+
 const onUpdateGame = function (cellID, mark, gameStatus) {
   api.updateGame(cellID, mark, gameStatus)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
 }
 
-const onClickCell = function (event) {
-  const cellID = event.target.id
-  markCell(cellID, store.user.game)
+const onGetGames = function () {
+  api.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesfailure)
 }
 
 const checkWinner = function (player, game) {
@@ -78,11 +84,14 @@ const markCell = function (cellID, game) {
     // The selection was invalid, notify user
     !game.over && ui.notifyUser('Invalid Selection')
   }
+  onGetGames()
+  console.log(store.user)
 }
 
 module.exports = {
   getFormFields,
   onClickCell,
   onUpdateGame,
-  onNewGame
+  onNewGame,
+  onGetGames
 }

@@ -32,8 +32,18 @@ const updateGameSuccess = function (responseData) {
   console.log('Game updated!')
 }
 
-const updateGameFailure = function () {
+const updateGamesFailure = function () {
   console.log('Failed to update game!')
+}
+
+const getGamesSuccess = function (responseData) {
+  console.log('Got Games!')
+  console.log(responseData.games)
+  store.user.games = responseData.games
+}
+
+const getGameFailure = function () {
+  console.log('Failed to get games!')
 }
 
 module.exports = {
@@ -42,5 +52,7 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   updateGameSuccess,
-  updateGameFailure
+  updateGamesFailure,
+  getGamesSuccess,
+  getGameFailure
 }
