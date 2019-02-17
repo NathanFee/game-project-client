@@ -5,29 +5,6 @@ const ui = require('./ui.js')
 const api = require('./api.js')
 const store = require('./store.js')
 
-// Test Game --------------------------------
-const game = {
-  cells: ['', '', '', '', '', '', '', '', ''],
-  over: false,
-  player_x: {
-    id: 0,
-    email: 'player_x@gmail.com',
-    mark: 'X',
-    moves: []
-  },
-  player_o: {
-    id: 1,
-    email: 'player_x@gmail.com',
-    mark: 'O',
-    moves: []
-  },
-  player_xTurn: true,
-  getCurrentPlayer: function () {
-    return this.player_xTurn ? this.player_x : this.player_o
-  }
-}
-// Test Game --------------------------------
-
 const winningCombinations = [
   ['2', '1', '0'],
   ['3', '4', '5'],
@@ -46,22 +23,18 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
-const onGetGame = (event) => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-
-  api.getGame(formData.game.id)
-    .then(ui.getGameSuccess)
-    .catch(ui.getGameFailure)
+const onUpdateGame = function (cellID, mark, gameStatus) {
+  api.updateGame(cellID, mark, gameStatus)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
 }
 
 const onClickCell = function (event) {
   const cellID = event.target.id
-  markCell(cellID, game)
+  markCell(cellID, store.user.game)
 }
 
-const checkWinner = function (player) {
+const checkWinner = function (player, game) {
   let win = false
   // check to see if current player has won
   win = winningCombinations.some((combo) => combo.every(num => player.moves.includes(num)))
@@ -94,9 +67,11 @@ const markCell = function (cellID, game) {
     // Mark cell in ui with player mark
     ui.markCellUi(cellID, player.mark)
     // If player won, notify user
-    checkWinner(player) && ui.notifyUser(`Game Over. ${player.mark} Wins!`)
+    checkWinner(player, game) && ui.notifyUser(`Game Over. ${player.mark} Wins!`)
     // If draw, notify user
     !game.over && checkDraw(game) && ui.notifyUser('The Game is a Draw!')
+    // Let the api know whats going on
+    onUpdateGame(cellID, player.mark, game.over)
     // If the game is not over, switch turn
     !game.over && switchTurn(game)
   } else {
@@ -108,6 +83,6 @@ const markCell = function (cellID, game) {
 module.exports = {
   getFormFields,
   onClickCell,
-  onNewGame,
-  onGetGame
+  onUpdateGame,
+  onNewGame
 }
