@@ -22,7 +22,12 @@ const newGameSuccess = function (responseData) {
   game.getCurrentPlayer = function () {
     return this.player_xTurn ? this.player_x : this.player_o
   }
+  clearBoard()
   showGameBoard()
+}
+
+const clearBoard = function () {
+  $('#game-board div').empty()
 }
 
 const showGameBoard = function () {
