@@ -73,6 +73,17 @@ h4 {
   }
 }
 
+.game-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-button {
+  align-self: center;
+  margin-top: 20px;
+  width: 35vh;
+}
+
 .hidden {
   display: none;
 }
