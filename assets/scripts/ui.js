@@ -22,12 +22,14 @@ const newGameSuccess = function (responseData) {
   game.getCurrentPlayer = function () {
     return this.player_xTurn ? this.player_x : this.player_o
   }
-  clearBoard()
+  $('#user-message').html('')
+  resetBoard()
   showGameBoard()
 }
 
-const clearBoard = function () {
-  $('#game-board div').empty()
+const resetBoard = function () {
+  $('#game-board .cell').empty()
+  $('.notifications').html('X goes first')
 }
 
 const showGameBoard = function () {

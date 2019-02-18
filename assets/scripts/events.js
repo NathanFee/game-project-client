@@ -55,12 +55,12 @@ const switchTurn = function (game) {
     // it was players_x'x turn so now its not
     game.player_xTurn = false
     // notify player_o that its thier turn
-    ui.notifyUser(`Player ${game.player_o.mark} it's you turn`)
+    ui.notifyUser(`${game.player_o.mark}'s turn`)
   } else {
     // it was player_o's turn now its player_x's turn
     game.player_xTurn = true
     // notify player_x that its thier turn
-    ui.notifyUser(`Player ${game.player_x.mark} it's you turn`)
+    ui.notifyUser(`${game.player_x.mark}'s turn`)
   }
 }
 
@@ -80,14 +80,14 @@ const markCell = function (cellID, game) {
     // If player won, notify user
     checkWinner(player, game) && ui.notifyUser(`Game Over. ${player.mark} Wins!`)
     // If draw, notify user
-    !game.over && checkDraw(game) && ui.notifyUser('The Game is a Draw!')
+    !game.over && checkDraw(game) && ui.notifyUser('The game is a draw!')
     // Let the api know whats going on
     onUpdateGame(cellID, player.mark, game.over)
     // If the game is not over, switch turn
     !game.over && switchTurn(game)
   } else {
     // The selection was invalid, notify user
-    !game.over && ui.notifyUser('Invalid Selection')
+    !game.over && ui.notifyUser('Invalid selection')
   }
 }
 
