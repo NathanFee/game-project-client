@@ -20,11 +20,14 @@ $(() => {
   $('#7').on('click', events.onClickCell)
   $('#8').on('click', events.onClickCell)
 
-  $('.new-game-button').on('click', events.onNewGame)
+  $('#new-game-button').on('click', events.onNewGame)
 
   // authorization
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#sign-out-form').on('submit', authEvents.onSignOut)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
+
+  $('.sign-in-button').on('click', authEvents.onSignInButton)
+  $('.sign-up-button').on('click', authEvents.onSignUpButton)
 })

@@ -41,9 +41,21 @@ const onSignOut = function () {
     .catch(ui.signOutFailure)
 }
 
+const onSignInButton = function () {
+  event.preventDefault()
+  ui.showSignInForm()
+}
+
+const onSignUpButton = function () {
+  event.preventDefault()
+  ui.showSignUpForm()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  onSignInButton,
+  onSignUpButton
 }

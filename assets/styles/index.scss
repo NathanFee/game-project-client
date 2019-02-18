@@ -8,6 +8,7 @@ $title-color: #ff0000;
 
 body {
   background-color: $background-color;
+  height: 100vh;
 }
 
 header {
@@ -15,7 +16,16 @@ header {
   justify-content: center;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80vh;
+}
+
 h4 {
+  margin-top: 10px;
   color: $font-color;
 }
 
@@ -25,6 +35,44 @@ h4 {
   border: 1px solid $cell-border;
   color: red;
   display: flex;
-  height: 160px;
+  height: 15vh;
   justify-content: center;
+}
+
+.navbar-text {
+  color: red;
+  font-size: 15px
+}
+
+.sign-up-display {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 45vw;
+  min-height: 170px;
+  min-width: 275px;
+  max-width: 400px;
+  color: gray;
+}
+
+.sign-in-display {
+  display: flex;
+  flex-direction: column;
+  height: 60vh;
+  width: 45vw;
+  min-height: 145px;
+  min-width: 275px;
+  max-width: 400px;
+  color: gray;
+}
+
+.swap-form-display {
+  margin-bottom: 80px;
+  >.swap-form-message {
+    display: inline-block;
+  }
+}
+
+.hidden {
+  display: none;
 }

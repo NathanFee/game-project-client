@@ -22,6 +22,11 @@ const newGameSuccess = function (responseData) {
   game.getCurrentPlayer = function () {
     return this.player_xTurn ? this.player_x : this.player_o
   }
+  showGameBoard()
+}
+
+const showGameBoard = function () {
+  $('#game-board').removeClass('hidden')
 }
 
 const newGameFailure = function () {
