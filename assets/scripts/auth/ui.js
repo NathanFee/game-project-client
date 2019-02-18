@@ -24,6 +24,7 @@ const signInSuccess = (responseData) => {
   $('form').addClass('hidden')
   $('#new-game-button').removeClass('hidden')
   $('.swap-form-display').addClass('hidden')
+  $('#sign-out-form').removeClass('hidden')
   removeMessage()
 }
 
@@ -48,7 +49,12 @@ const changePasswordFailure = () => {
 const signOutSuccess = () => {
   $('#user-message').html('Successfully Signed-Out!')
   $('form').trigger('reset')
+  $('#game-board').addClass('hidden')
+  $('#new-game-button').addClass('hidden')
+  $('#sign-out-form').addClass('hidden')
+  $('.swap-form-display').removeClass('hidden')
   store.user = null
+  showSignUpForm()
   removeMessage()
 }
 
