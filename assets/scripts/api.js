@@ -37,7 +37,7 @@ const updateGame = function (index, mark, gameStatus) {
 const getGames = function () {
   console.log('getting games...')
   return $.ajax({
-    url: config.apiUrl + '/games/',
+    url: config.apiUrl + '/games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

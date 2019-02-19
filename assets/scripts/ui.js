@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./store.js')
+const events = require('./events.js')
 
 const markCellUi = (cellID, playersMark) => {
   $('#' + cellID).html(`<h1>${playersMark}</h1>`)
@@ -11,6 +12,7 @@ const notifyUser = (text) => $('.notifications').text(text)
 const newGameSuccess = function (responseData) {
   console.log('New game created!')
   store.user.game = responseData.game
+  store.user.games = {}
   $('#user-message').html('')
   resetBoard()
   showGameBoard()
@@ -23,6 +25,10 @@ const resetBoard = function () {
 
 const showGameBoard = function () {
   $('#game-board').removeClass('hidden')
+}
+
+const showGameStats = function (gameStats) {
+  $('#game-stats-viewer').html(gameStats)
 }
 
 const newGameFailure = function () {
@@ -38,7 +44,7 @@ const updateGamesFailure = function () {
 }
 
 const getGamesSuccess = function (responseData) {
-  console.log('Got Games!')
+  console.log('GOT GAMES!')
   store.user.games = responseData.games
 }
 
@@ -54,5 +60,6 @@ module.exports = {
   updateGameSuccess,
   updateGamesFailure,
   getGamesSuccess,
-  getGameFailure
+  getGameFailure,
+  showGameStats
 }

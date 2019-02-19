@@ -35,10 +35,21 @@ const onUpdateGame = function (cellID, mark, gameStatus) {
     .catch(ui.updateGameFailure)
 }
 
-const onGetGames = function () {
+const onGameStats = function () {
   api.getGames()
     .then(ui.getGamesSuccess)
+    .then(() => calcGameStats())
     .catch(ui.getGamesfailure)
+}
+
+const calcGameStats = function () {
+  const games = store.user.games
+  // check if game was a win/lose
+  const xWins = games.filter(game => checkWin(game, 'X'))
+  const oWins = games.filter(game => checkWin(game, 'O'))
+  const draws = games.filter(game => checkDraw(game))
+
+  ui.showGameStats(`Wins:${xWins.length} Loses:${oWins.length} Draws:${draws.length}`)
 }
 
 const getCurrentPlayersMark = function (game) {
@@ -57,7 +68,7 @@ const getPlayersMoves = function (game, playersMark) {
   return moves
 }
 
-const checkWinner = function (game, playersMark) {
+const checkWin = function (game, playersMark) {
   let win = false
   // get all current players moves
   const moves = getPlayersMoves(game, playersMark)
@@ -82,7 +93,7 @@ const markCell = function (cellID, game) {
     // Mark cell in ui with player mark
     ui.markCellUi(cellID, playersMark)
     // If player won, notify user
-    checkWinner(game, playersMark) && ui.notifyUser(`Game Over. ${playersMark} Wins!`)
+    checkWin(game, playersMark) && ui.notifyUser(`Game Over. ${playersMark} Wins!`)
     // If draw, notify user
     !game.over && checkDraw(game) && ui.notifyUser('The game is a draw!')
     // Let the api know whats going on
@@ -99,5 +110,5 @@ module.exports = {
   onClickCell,
   onUpdateGame,
   onNewGame,
-  onGetGames
+  onGameStats
 }

@@ -1,109 +1,127 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-        <nav class="navbar navbar-expand navbar-light bg-light">
-          <span class="navbar-text">
-            <img src="https://desenio.com/bilder/artiklar/zoom/7805_1.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
-            Tic-Tac-Toe
-          </span>
-          <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarNavDropdown">
-            <ul class="navbar-nav hidden">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  UserName
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a id="sign-out-link" class="dropdown-item" href="#">Sign-out</a>
-                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal">Change password</a>
-                  <a class="dropdown-item" href="#">Game Stats</a>
-                </div>
-              </li>
-            </ul>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <span class="navbar-text">
+      <img src="https://desenio.com/bilder/artiklar/zoom/7805_1.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      Tic-Tac-Toe
+    </span>
+    <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarNavDropdown">
+      <ul class="navbar-nav hidden">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            UserName
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a id="sign-out-link" class="dropdown-item" href="#">Sign-out</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal">Change password</a>
+            <a id="game-stats-link"class="dropdown-item" href="#" data-toggle="modal" data-target="#gameStatsModal">Game Stats</a>
           </div>
-      </nav>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <header>
     <h1>Tic-Tac-Toe</h1>
   </header>
 
   <main>
-    <div class= "game-area container my-2">
-        <div id= 'game-board' class="row hidden">
-          <div id="0" class="col-4 cell"></div>
-          <div id="1" class="col-4 cell"></div>
-          <div id="2" class="col-4 cell"></div>
+    <div class="game-area container my-2">
+      <div id='game-board' class="row hidden">
+        <div id="0" class="col-4 cell"></div>
+        <div id="1" class="col-4 cell"></div>
+        <div id="2" class="col-4 cell"></div>
 
-          <div id="3" class="col-4 cell"></div>
-          <div id="4" class="col-4 cell"></div>
-          <div id="5" class="col-4 cell"></div>
+        <div id="3" class="col-4 cell"></div>
+        <div id="4" class="col-4 cell"></div>
+        <div id="5" class="col-4 cell"></div>
 
-          <div id="6" class="col-4 cell"></div>
-          <div id="7" class="col-4 cell"></div>
-          <div id="8" class="col-4 cell"></div>
+        <div id="6" class="col-4 cell"></div>
+        <div id="7" class="col-4 cell"></div>
+        <div id="8" class="col-4 cell"></div>
 
-          <div class="notifications-window">
-            <p class="notifications"></p>
-          </div>
+        <div class="notifications-window">
+          <p class="notifications"></p>
         </div>
-        <button id="new-game-button" class="game-button hidden">New Game</button>
       </div>
+      <button id="new-game-button" class="game-button hidden">New Game</button>
+    </div>
 
     <form id="sign-up-form" class="sign-up-display"> Sign-up
-      <input name="credentials[email]" type="email" placeholder="Email"/>
-      <input name="credentials[password]" type="password" placeholder="Password"/>
-      <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation"/>
-      <input type="submit" value="Submit"/>
+      <input name="credentials[email]" type="email" placeholder="Email" />
+      <input name="credentials[password]" type="password" placeholder="Password" />
+      <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation" />
+      <input type="submit" value="Submit" />
     </form>
 
     <form id="sign-in-form" class="sign-in-display hidden"> Sign-in
-        <input name="credentials[email]" type="email" placeholder="Email"/>
-        <input name="credentials[password]" type="password" placeholder="Password"/>
-        <input type="submit" value="Submit"/>
+      <input name="credentials[email]" type="email" placeholder="Email" />
+      <input name="credentials[password]" type="password" placeholder="Password" />
+      <input type="submit" value="Submit" />
     </form>
 
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="changePasswordModalCenterTitle">Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
 
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Launch demo modal
-</button> -->
+          <div class="modal-body">
+            <form id="change-password-form">
+              <input name="passwords[old]" type="password" placeholder="Old Password" />
+              <input name="passwords[new]" type="password" placeholder="New Password" />
+            </form>
+          </div>
 
-<!-- Modal -->
-<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Change Password</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="modal-body">
-        <form id="change-password-form">
-            <input name="passwords[old]" type="password" placeholder="Old Password"/>
-            <input name="passwords[new]" type="password" placeholder="New Password"/>
-        </form>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" form="change-password-form" class="btn btn-primary">Submit</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" form="change-password-form" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <!-- Game Stats Modal -->
+    <div class="modal fade" id="gameStatsModal" tabindex="-1" role="dialog" aria-labelledby="gameStatsModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="gameStatsModalCenterTitle">Game Stats</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div id="game-stats-viewer" class="modal-body">
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="user-message-display">
       <p id="user-message"></p>
@@ -116,10 +134,11 @@
     </div>
 
   </main>
-<!--Footer borroed from GA pre-course work -->
+  <!--Footer borroed from GA pre-course work -->
   <footer class="navbar fixed-bottom navbar-light bg-light">
-    <p class="message">Created by Nathan J Fee at GA</p>
+    <p class="message">Created by Nathan J Fee @ <a href="https://generalassemb.ly/" class="ga-link">GA</a></p>
   </footer>
 
-    </body>
+</body>
+
 </html>
