@@ -1,7 +1,6 @@
 'use strict'
 
 const store = require('./store.js')
-const events = require('./events.js')
 
 const markCellUi = (cellID, playersMark) => {
   $('#' + cellID).html(`<h1>${playersMark}</h1>`)
