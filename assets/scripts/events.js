@@ -35,21 +35,21 @@ const onUpdateGame = function (cellID, mark, gameStatus) {
     .catch(ui.updateGameFailure)
 }
 
-const onGameStats = function () {
+const onUserStats = function () {
   api.getGames()
     .then(ui.getGamesSuccess)
-    .then(() => calcGameStats())
+    .then(() => calcUserStats())
     .catch(ui.getGamesfailure)
 }
 
-const calcGameStats = function () {
+const calcUserStats = function () {
   const games = store.user.games
   // check if game was a win/lose
   const xWins = games.filter(game => checkWin(game, 'X'))
   const oWins = games.filter(game => checkWin(game, 'O'))
   const draws = games.filter(game => checkDraw(game))
 
-  ui.showGameStats(`Wins:${xWins.length} Loses:${oWins.length} Draws:${draws.length}`)
+  ui.showUserStats(`Wins:${xWins.length} Loses:${oWins.length} Draws:${draws.length}`)
 }
 
 const getCurrentPlayersMark = function (game) {
@@ -110,5 +110,5 @@ module.exports = {
   onClickCell,
   onUpdateGame,
   onNewGame,
-  onGameStats
+  onUserStats
 }

@@ -27,8 +27,8 @@ const showGameBoard = function () {
   $('#game-board').removeClass('hidden')
 }
 
-const showGameStats = function (gameStats) {
-  $('#game-stats-viewer').html(gameStats)
+const showUserStats = function (userStats) {
+  $('#user-stats-viewer').html(userStats)
 }
 
 const newGameFailure = function () {
@@ -61,5 +61,5 @@ module.exports = {
   updateGamesFailure,
   getGamesSuccess,
   getGameFailure,
-  showGameStats
+  showUserStats
 }

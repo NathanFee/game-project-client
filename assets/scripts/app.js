@@ -21,7 +21,7 @@ $(() => {
   $('#8').on('click', events.onClickCell)
 
   $('#new-game-button').on('click', events.onNewGame)
-  $('#game-stats-link').on('click', events.onGameStats)
+  $('#user-stats-link').on('click', events.onUserStats)
 
   // authorization
   $('#sign-up-form').on('submit', authEvents.onSignUp)
