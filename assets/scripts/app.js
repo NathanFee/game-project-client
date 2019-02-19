@@ -25,7 +25,7 @@ $(() => {
   // authorization
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
-  $('#sign-out-form').on('submit', authEvents.onSignOut)
+  $('#sign-out-link').on('click', authEvents.onSignOut)
   $('#change-password-form').on('submit', authEvents.onChangePassword)
 
   $('.sign-in-button').on('click', authEvents.onSignInButton)
