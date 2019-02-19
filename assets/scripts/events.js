@@ -6,14 +6,14 @@ const api = require('./api.js')
 const store = require('./store.js')
 
 const winningCombinations = [
-  ['2', '1', '0'],
-  ['3', '4', '5'],
-  ['6', '7', '8'],
-  ['8', '4', '0'],
-  ['2', '4', '6'],
-  ['6', '3', '0'],
-  ['1', '4', '7'],
-  ['2', '5', '8']]
+  [2, 1, 0],
+  [3, 4, 5],
+  [6, 7, 8],
+  [8, 4, 0],
+  [2, 4, 6],
+  [6, 3, 0],
+  [1, 4, 7],
+  [2, 5, 8]]
 
 const onNewGame = function (event) {
   // prevent refresh after button click
@@ -41,50 +41,53 @@ const onGetGames = function () {
     .catch(ui.getGamesfailure)
 }
 
-const checkWinner = function (player, game) {
+const getCurrentPlayersMark = function (game) {
+  const xs = game.cells.filter(cell => cell === 'X')
+  const os = game.cells.filter(cell => cell === 'O')
+
+  return xs.length > os.length ? 'O' : 'X'
+}
+
+const getPlayersMoves = function (game, playersMark) {
+  const moves = []
+  for (let i = 0; i < game.cells.length; i++) {
+    game.cells[i] === playersMark && moves.push(i)
+  }
+
+  return moves
+}
+
+const checkWinner = function (game, playersMark) {
   let win = false
+  // get all current players moves
+  const moves = getPlayersMoves(game, playersMark)
+  console.log(moves)
   // check to see if current player has won
-  win = winningCombinations.some((combo) => combo.every(num => player.moves.includes(num)))
+  win = winningCombinations.some((combo) => combo.every(num => moves.includes(num)))
   // if there is a winner, end the game
   win ? game.over = true : game.over = false
   return win
-}
-
-const switchTurn = function (game) {
-  if (game.player_xTurn) {
-    // it was players_x'x turn so now its not
-    game.player_xTurn = false
-    // notify player_o that its thier turn
-    ui.notifyUser(`${game.player_o.mark}'s turn`)
-  } else {
-    // it was player_o's turn now its player_x's turn
-    game.player_xTurn = true
-    // notify player_x that its thier turn
-    ui.notifyUser(`${game.player_x.mark}'s turn`)
-  }
 }
 
 // if there are no empty spaces, the game is a draw, end game.
 const checkDraw = (game) => !game.cells.includes('') && (game.over = true)
 
 const markCell = function (cellID, game) {
-  const player = game.getCurrentPlayer()
+  const playersMark = getCurrentPlayersMark(game)
+  const opponentsMark = playersMark === 'X' ? 'O' : 'X'
   // Check if the cell is empty & the game isn't over
   if (!game.cells[cellID] && !game.over) {
     // Fill the cell array with the players mark
-    game.cells[cellID] = player.mark
-    // Store the cell index in the players moves array
-    player.moves.push(cellID)
+    game.cells[cellID] = playersMark
     // Mark cell in ui with player mark
-    ui.markCellUi(cellID, player.mark)
+    ui.markCellUi(cellID, playersMark)
     // If player won, notify user
-    checkWinner(player, game) && ui.notifyUser(`Game Over. ${player.mark} Wins!`)
+    checkWinner(game, playersMark) && ui.notifyUser(`Game Over. ${playersMark} Wins!`)
     // If draw, notify user
     !game.over && checkDraw(game) && ui.notifyUser('The game is a draw!')
     // Let the api know whats going on
-    onUpdateGame(cellID, player.mark, game.over)
-    // If the game is not over, switch turn
-    !game.over && switchTurn(game)
+    onUpdateGame(cellID, playersMark, game.over)
+    !game.over && ui.notifyUser(`${opponentsMark}'s Turn`)
   } else {
     // The selection was invalid, notify user
     !game.over && ui.notifyUser('Invalid selection')

@@ -11,17 +11,6 @@ const notifyUser = (text) => $('.notifications').text(text)
 const newGameSuccess = function (responseData) {
   console.log('New game created!')
   store.user.game = responseData.game
-  // initialize game
-  const game = store.user.game
-  game.player_x.moves = []
-  game.player_x.mark = 'X'
-  game.player_o = {}
-  game.player_o.moves = []
-  game.player_o.mark = 'O'
-  game.player_xTurn = true
-  game.getCurrentPlayer = function () {
-    return this.player_xTurn ? this.player_x : this.player_o
-  }
   $('#user-message').html('')
   resetBoard()
   showGameBoard()
