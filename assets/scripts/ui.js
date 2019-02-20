@@ -11,12 +11,9 @@ const markCellUi = (cellID, playersMark) => {
 const notifyUser = (text) => $('.notifications').text(text)
 
 const newGameSuccess = function (responseData) {
-<<<<<<< HEAD
-=======
   // A new game was created, disable new game button
   $('#new-game-button').addClass('disabled')
   // Store the new game
->>>>>>> other
   store.user.game = responseData.game
   $('#user-message').html('')
   $('.notifications-window').removeClass('hidden')
