@@ -93,7 +93,7 @@ const markCell = function (cellID, game) {
     // Mark cell in ui with player mark
     ui.markCellUi(cellID, playersMark)
     // If player won, notify user
-    checkWin(game, playersMark) && ui.notifyUser(`Game Over. ${playersMark} Wins!`)
+    checkWin(game, playersMark) && ui.notifyUser(`Game Over. ${playersMark} Wins! Please start a new game.`)
     // If draw, notify user
     !game.over && checkDraw(game) && ui.notifyUser('The game is a draw!')
     // Let the api know whats going on
