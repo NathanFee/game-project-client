@@ -73,7 +73,6 @@ const showSignInForm = function () {
   $('.sign-in-button').addClass('hidden')
   $('.sign-up-button').removeClass('hidden')
   $('.swap-form-message').html('Need an account?')
-  $('#user-message').html('')
 }
 
 const showSignUpForm = function () {
