@@ -9,7 +9,6 @@ const markCellUi = (cellID, playersMark) => {
 const notifyUser = (text) => $('.notifications').text(text)
 
 const newGameSuccess = function (responseData) {
-  console.log('New game created!')
   store.user.game = responseData.game
   store.user.games = {}
   $('#user-message').html('')
@@ -33,24 +32,24 @@ const showUserStats = function (userStats) {
 }
 
 const newGameFailure = function () {
-  console.log('Failed to create new game!')
+  $('#user-message').html('Error failed to create new game!')
 }
 
 const updateGameSuccess = function (responseData) {
-  console.log('Game updated!')
+  // No user message is needed as game will display success.
+  // console.log('Game updated!')
 }
 
 const updateGamesFailure = function () {
-  console.log('Failed to update game!')
+  $('#user-message').html('Error failed to update game. Try Again.')
 }
 
 const getGamesSuccess = function (responseData) {
-  console.log('GOT GAMES!')
   store.user.games = responseData.games
 }
 
-const getGameFailure = function () {
-  console.log('Failed to get games!')
+const getGamesFailure = function () {
+  $('#user-message').html('Error failed to get games!')
 }
 
 module.exports = {
@@ -61,6 +60,6 @@ module.exports = {
   updateGameSuccess,
   updateGamesFailure,
   getGamesSuccess,
-  getGameFailure,
+  getGamesFailure,
   showUserStats
 }

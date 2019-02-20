@@ -72,7 +72,6 @@ const checkWin = function (game, playersMark) {
   let win = false
   // get all current players moves
   const moves = getPlayersMoves(game, playersMark)
-  console.log(moves)
   // check to see if current player has won
   win = winningCombinations.some((combo) => combo.every(num => moves.includes(num)))
   // if there is a winner, end the game
