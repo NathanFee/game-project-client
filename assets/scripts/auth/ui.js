@@ -84,11 +84,18 @@ const showSignUpForm = function () {
   $('.swap-form-message').html('Already have an account?')
 }
 
+let timeOut = null
+
+const stopTimeout = function () {
+  clearTimeout(timeOut)
+}
+
 const removeMessage = function () {
-  setTimeout(() => {
+  stopTimeout()
+  timeOut = setTimeout(() => {
     $('#user-message').html('')
     $('#alert-message').html('')
-  }, 5000)
+  }, 3500)
 }
 
 module.exports = {
