@@ -56,6 +56,7 @@ const signOutSuccess = () => {
   $('.navbar-nav').addClass('hidden')
   $('.notifications-window').addClass('hidden')
   $('.swap-form-display').removeClass('hidden')
+  $('#new-game-button').removeClass('disabled')
   store.user = {}
   showSignUpForm()
   removeMessage()
