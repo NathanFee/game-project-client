@@ -13,6 +13,7 @@ const newGameSuccess = function (responseData) {
   store.user.game = responseData.game
   store.user.games = {}
   $('#user-message').html('')
+  $('.notifications-window').removeClass('hidden')
   resetBoard()
   showGameBoard()
 }

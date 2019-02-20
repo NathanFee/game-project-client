@@ -36,16 +36,14 @@ const signInFailure = () => {
 }
 
 const changePasswordSuccess = () => {
-  $('#user-message').html('Password Change Successful!')
+  $('#alert-message').html('Password Change Successful!')
   $('form').trigger('reset')
-  $('#changePasswordModal').modal('toggle')
   removeMessage()
 }
 
 const changePasswordFailure = () => {
-  $('#user-message').html('Error Changing Password!')
+  $('#alert-message').html('Error Changing Password. Please try again.')
   $('form').trigger('reset')
-  $('#changePasswordModal').modal('toggle')
   removeMessage()
 }
 
@@ -58,7 +56,7 @@ const signOutSuccess = () => {
   $('.navbar-nav').addClass('hidden')
   $('.notifications-window').addClass('hidden')
   $('.swap-form-display').removeClass('hidden')
-  store.user = null
+  store.user = {}
   showSignUpForm()
   removeMessage()
 }
@@ -90,7 +88,8 @@ const showSignUpForm = function () {
 const removeMessage = function () {
   setTimeout(() => {
     $('#user-message').html('')
-  }, 3000)
+    $('#alert-message').html('')
+  }, 5000)
 }
 
 module.exports = {
