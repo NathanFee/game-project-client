@@ -73,6 +73,7 @@ const showSignInForm = function () {
   $('.sign-in-display').removeClass('hidden')
   $('.sign-in-button').addClass('hidden')
   $('.sign-up-button').removeClass('hidden')
+  $('form').trigger('reset')
   $('.swap-form-message').html('Need an account?')
 }
 
@@ -81,6 +82,7 @@ const showSignUpForm = function () {
   $('.sign-up-display').removeClass('hidden')
   $('.sign-up-button').addClass('hidden')
   $('.sign-in-button').removeClass('hidden')
+  $('form').trigger('reset')
   $('.swap-form-message').html('Already have an account?')
 }
 
