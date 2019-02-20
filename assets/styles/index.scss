@@ -5,12 +5,19 @@ $cell-color: #d3d3d3;
 $cell-border: #fff;
 $title-color: #f00;
 $form-title-font: #616161;
+$button-background: #d3d3d3;
+$button-text: #000;
 $gameboard-elements: #000;
 
 body {
   background-color: $background-color;
   font-family: 'ZCOOL QingKe HuangYou', cursive;
   font-size: 1.25em;
+}
+
+button {
+  background-color: $button-background;
+  color: $button-text;
 }
 
 header {
@@ -97,6 +104,7 @@ h4 {
 }
 
 .submit {
+  background-color: $button-background;
   border-radius: 5px;
   margin: 5px 10px;
   min-height: 35px;
@@ -115,6 +123,7 @@ h4 {
 }
 
 .game-button {
+  background-color: $button-background;
   border-radius: 5px;
   margin-bottom: 56px;
   padding-bottom: 0 3px;
