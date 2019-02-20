@@ -36,8 +36,8 @@ const newGameFailure = function () {
 }
 
 const updateGameSuccess = function (responseData) {
+  // This function is here for testing purposes only.
   // No user message is needed as game will display success.
-  // console.log('Game updated!')
 }
 
 const updateGamesFailure = function () {

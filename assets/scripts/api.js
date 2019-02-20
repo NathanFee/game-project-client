@@ -15,7 +15,6 @@ const createNewGame = () => {
 }
 
 const updateGame = function (index, mark, gameStatus) {
-  console.log('updating game...')
   return $.ajax({
     url: config.apiUrl + '/games/' + store.user.game.id,
     method: 'PATCH',
@@ -35,7 +34,6 @@ const updateGame = function (index, mark, gameStatus) {
 }
 
 const getGames = function () {
-  console.log('getting games...')
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
