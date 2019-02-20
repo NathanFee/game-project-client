@@ -62,19 +62,19 @@ I wanted to make my design simple to keep my focus on functionality over appeara
 
 ## Development Process Story
 
-# Phase 1: Project Planning
+## Phase 1: Project Planning
 ```
   During the planning process I reviewed the game project study, and made a
   rough schedule with timelines, based on the recommended schedule. I created
   a new user stories that more accurately reflected the project requirements
   and built new wireframes better capture the layout of my page.
 ```
-# Phase 2: Set up
+## Phase 2: Set up
 ```
 During this phase, I downloaded the template, created a git hub repository and
 deployed a basic site to Github pages per the recomended schedule.
 ```
-# Phase 3: Game UI Round 1
+## Phase 3: Game UI Round 1
 ```
 First I started by creating a simple board. I simply used a class training to
 get the rough layout and altered it to meet my needs. I got a little distracted
@@ -90,7 +90,7 @@ not allow users to add and X or O to an invalid space. I thought it made more
 sense to have a javascript board at this point and check validity based on the
 board array.
 ```
-# Phase 3: Game Engine
+## Phase 3: Game Engine
 ```
 I first created a game object to mimic that of the api. I used an array for the
 gameboard itself, two players and variable for the game being over.
@@ -116,7 +116,7 @@ I frequently ignored my pomodoro timer in this phase. I then tried to take
 breaks at mile stones but ended up spending to many useless hours trying to
 solve a problem that I could solve in minutes fresh and returned to the timer.
 ```
-# Phase 4: Authentication
+## Phase 4: Authentication
 ```
 This phase was fairly quick as I used the auth files I had created in class and
 just linked them up to the game API.
@@ -124,7 +124,7 @@ just linked them up to the game API.
 I had a couple issues here but found my answers within the issue que.
 ```
 
-# Phase 5: Game API
+## Phase 5: Game API
 ```
 This was the toughest phase as I had created variables that were not included
 in the api and ended up just initalizing the game with my variables by altering
@@ -135,14 +135,14 @@ because you'd lose all the variables needed for the game.
 
 This is when I recreated my game logic to only require a gameboard array.
 ```
-# Phase 6: Requirements
+## Phase 6: Requirements
 ```
 This phase was added in after I completed the API and realized that while I had
 created the Authentication components I did not meet the requirements of the
 sign-up/in/out. As the board needed to be hidden and the appropriate options
 appear only when they should.
 ```
-# Phase 7: Requirements 2.0
+## Phase 7: Requirements 2.0
 ```
 I also realized there was a requirement to visually display the results of
 retrieving game statistics.
@@ -150,22 +150,22 @@ retrieving game statistics.
 I then created a function to iterate through past games and display the users
 stats on wins/loses/draws.
 ```
-# Phase 8: Final Touches
+## Phase 8: Final Touches
 ```
 I swapped the order of this styling first, troubleshooting and then creating
 the READ ME as I had the time and I wanted my product to appear finished.
 ```
-# Phase 9: Break This
+## Phase 9: Break This
 ```
-As recommended by Jennifer Meade I posted my game link to be tested by my
-peers for errors.
+As recommended by one of our instructors, Jennifer Meade, I posted my game link
+to be tested by my peers for errors.
 ```
-# Unsolved Problems
+## Unsolved Problems
 ```
 I wouldve liked to make my code a little more DRY and be more consistent on
 variables.
 ```
-# Future Changes / Additions
+## Future Changes / Additions
 ```
 I wouldve liked to add a feature to highlight the winning row.
 
