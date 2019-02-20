@@ -9,6 +9,8 @@ I think I will try to reprsent the game as an object that has an array for the b
 
 I will focus on extra flare or creative spin last, functionality and requirements come first.
 
+I will also try to commit at least after each step, if not more often.
+
 I also plan to using the pomodoro method using a free app called "Be Focused," to avoid burnout.
 
 ## Schedule
@@ -165,7 +167,7 @@ variables.
 ```
 # Future Changes / Additions
 ```
-I wouldve liked to add a feature to highlight the winning row. 
+I wouldve liked to add a feature to highlight the winning row.
 
 I wouldve liked to make my game multiplayer from different devices. This is
 why there is space under the new game button to allow for more menu items in
