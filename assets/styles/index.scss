@@ -1,10 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
-$font-color: #fff;
+$text-color: #fff;
 $background-color: #fff;
 $cell-color: #d3d3d3;
 $cell-border: #fff;
 $title-color: #f00;
-$form-title-font: #616161;
+$form-title-text: #616161;
 $button-background: #d3d3d3;
 $button-text: #000;
 $gameboard-elements: #000;
@@ -38,7 +38,7 @@ main {
 }
 
 .game-area {
-  margin: auto auto;
+  margin: auto;
   max-height: 60vh;
   max-width: 60vh;
   width: 60%;
@@ -77,12 +77,12 @@ main {
 }
 
 h4 {
-  color: $font-color;
+  color: $text-color;
   margin-top: 10px;
 }
 
 .sign-up-display {
-  color: $form-title-font;
+  color: $form-title-text;
   display: flex;
   flex-direction: column;
   height: 60vh;
@@ -93,7 +93,7 @@ h4 {
 }
 
 .sign-in-display {
-  color: $form-title-font;
+  color: $form-title-text;
   display: flex;
   flex-direction: column;
   height: 60vh;
