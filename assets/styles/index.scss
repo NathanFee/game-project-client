@@ -5,7 +5,6 @@ $cell-color: #d3d3d3;
 $cell-border: #fff;
 $title-color: #f00;
 $form-title-font: #616161;
-$button-color: #d3d3d3;
 $gameboard-elements: #000;
 
 body {
@@ -98,7 +97,6 @@ h4 {
 }
 
 .submit {
-  background-color: $button-color;
   border-radius: 5px;
   margin: 5px 10px;
   min-height: 35px;
@@ -117,7 +115,6 @@ h4 {
 }
 
 .game-button {
-  background-color: $button-color;
   border-radius: 5px;
   margin-bottom: 56px;
   padding-bottom: 0 3px;
