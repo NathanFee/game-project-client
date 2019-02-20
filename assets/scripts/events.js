@@ -86,8 +86,8 @@ const markCell = function (cellID, game) {
   const playersMark = getCurrentPlayersMark(game)
   const opponentsMark = playersMark === 'X' ? 'O' : 'X'
   // Check if the cell is empty & the game isn't over
-  if (!game.cells[cellID] && !game.over) {
-    // Fill the cell array with the players mark
+  if (game.cells[cellID] === '' && !game.over) {
+    // Fill the cells array with the players mark
     game.cells[cellID] = playersMark
     // Mark cell in ui with player mark
     ui.markCellUi(cellID, playersMark)
