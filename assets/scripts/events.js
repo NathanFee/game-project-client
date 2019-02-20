@@ -92,7 +92,7 @@ const markCell = function (cellID, game) {
     // Mark cell in ui with player mark
     ui.markCellUi(cellID, playersMark)
     // If player won, notify user
-    checkWin(game, playersMark) && ui.notifyUser(`Game Over. ${playersMark} Wins! Please start a new game.`)
+    checkWin(game, playersMark) && ui.notifyUser(`Game Over. ${playersMark} Wins!`)
     // If draw, notify user
     !game.over && checkDraw(game) && ui.notifyUser('The game is a draw!')
     // Let the api know whats going on
@@ -101,6 +101,8 @@ const markCell = function (cellID, game) {
   } else {
     // The selection was invalid, notify user
     !game.over && ui.notifyUser('Invalid selection')
+    // The game is over and the user is still trying to click.
+    game.over && ui.notifyUser('The Game is over. Please start a new game.')
   }
 }
 
