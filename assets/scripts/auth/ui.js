@@ -53,8 +53,10 @@ const signOutSuccess = () => {
   $('#user-message').html('Successfully Signed-Out!')
   $('form').trigger('reset')
   $('#game-board').addClass('hidden')
+  $('.game-area').addClass('hidden')
   $('#new-game-button').addClass('hidden')
   $('.navbar-nav').addClass('hidden')
+  $('.notifications-window').addClass('hidden')
   $('.swap-form-display').removeClass('hidden')
   store.user = null
   showSignUpForm()
@@ -73,6 +75,7 @@ const showSignInForm = function () {
   $('.sign-in-button').addClass('hidden')
   $('.sign-up-button').removeClass('hidden')
   $('.swap-form-message').html('Need an account?')
+  $('#user-message').html('')
 }
 
 const showSignUpForm = function () {
@@ -81,6 +84,7 @@ const showSignUpForm = function () {
   $('.sign-up-button').addClass('hidden')
   $('.sign-in-button').removeClass('hidden')
   $('.swap-form-message').html('Already have an account?')
+  $('#user-message').html('')
 }
 
 const removeMessage = function () {

@@ -23,6 +23,7 @@ const resetBoard = function () {
 }
 
 const showGameBoard = function () {
+  $('.game-area').removeClass('hidden')
   $('#game-board').removeClass('hidden')
 }
 

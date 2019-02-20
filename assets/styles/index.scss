@@ -1,86 +1,126 @@
 @import '~bootstrap/scss/bootstrap';
-
 $font-color: #fff;
 $background-color: #fff;
-$cell-color: #D3D3D3;
+$cell-color: #d3d3d3;
 $cell-border: #fff;
-$title-color: #ff0000;
+$title-color: #f00;
+$form-title-font: #616161;
+$button-color: #d3d3d3;
+
 
 body {
   background-color: $background-color;
-  height: 100vh;
+  font-family: 'ZCOOL QingKe HuangYou', cursive;
+  font-size: 1.25em;
 }
 
 header {
+  color: $title-color;
   display: flex;
+  font-family: 'ZCOOL KuaiLe', cursive;
   justify-content: center;
+  margin-bottom: 2px;
+  margin-top: 5px;
 }
 
 main {
+  color: $title-color;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 80vh;
+  height: 75vh;
 }
 
-h4 {
-  margin-top: 10px;
-  color: $font-color;
+.game-area {
+  margin: auto;
+  margin-bottom: 20px;
+  max-height:60vh;
+  max-width: 60vh;
+  width: 60%
 }
 
 .cell {
   align-items: center;
-  background-color: $cell-color;
-  border: 1px solid $cell-border;
-  color: red;
+  background-color: white;
+  color: black;
+  border-bottom: 5px black;
+  border-right: 5px black;
   display: flex;
-  height: 15vh;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  font-size: 12vh;
   justify-content: center;
+  min-height: calc(100% / 3);
 }
 
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+   > div {
+    width: calc(100%/3);
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+     &:nth-child(3n){
+       border-right: 0;
+     }
+     &:nth-last-child(-1n + 3){
+      border-bottom: 0;
+     }
+  }
+}
+
+h4 {
+  color: $font-color;
+  margin-top: 10px;
+}
+
+
 .sign-up-display {
+  color: $form-title-font;
   display: flex;
   flex-direction: column;
   height: 60vh;
-  width: 45vw;
+  max-width: 400px;
   min-height: 170px;
   min-width: 275px;
-  max-width: 400px;
-  color: gray;
+  width: 45vw;
 }
 
 .sign-in-display {
+  color: $form-title-font;
   display: flex;
   flex-direction: column;
   height: 60vh;
-  width: 45vw;
+  max-width: 400px;
   min-height: 145px;
   min-width: 275px;
-  max-width: 400px;
-  color: gray;
+  width: 45vw;
+}
+
+.submit {
+  background-color: $button-color;
+  border-radius: 5px;
+  min-height: 35px;
+  margin: 5px 10px;
 }
 
 .swap-form-display {
   margin-bottom: 80px;
-  >.swap-form-message {
+
+  > .swap-form-message {
     display: inline-block;
   }
 }
 
 .ga-link {
-  color: #ee0000;
-}
-
-.game-area {
-  display: flex;
-  flex-direction: column;
+  color: $title-color;
 }
 
 .game-button {
-  align-self: center;
-  margin: 5px;
+  margin-bottom: 56px;
+  padding-bottom: 0 3px;
   width: 150px;
+  border-radius: 5px;
+  background-color: $button-color;
 }
 
 .hidden {

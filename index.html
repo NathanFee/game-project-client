@@ -7,6 +7,7 @@
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe|ZCOOL+QingKe+HuangYou" rel="stylesheet">
 
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -41,38 +42,38 @@
   </header>
 
   <main>
-    <div class="game-area container my-2">
-      <div id='game-board' class="row hidden">
-        <div id="0" class="col-4 cell"></div>
-        <div id="1" class="col-4 cell"></div>
-        <div id="2" class="col-4 cell"></div>
 
-        <div id="3" class="col-4 cell"></div>
-        <div id="4" class="col-4 cell"></div>
-        <div id="5" class="col-4 cell"></div>
+    <div class="embed-responsive embed-responsive-1by1 game-area hidden">
+      <div id='game-board' class="embed-responsive-item game-board hidden">
+        <div id="0" class="cell"> </div>
+        <div id="1" class="cell"> </div>
+        <div id="2" class="cell"> </div>
 
-        <div id="6" class="col-4 cell"></div>
-        <div id="7" class="col-4 cell"></div>
-        <div id="8" class="col-4 cell"></div>
+        <div id="3" class="cell"> </div>
+        <div id="4" class="cell"> </div>
+        <div id="5" class="cell"> </div>
 
-        <div class="notifications-window">
-          <p class="notifications"></p>
-        </div>
+        <div id="6" class="cell"> </div>
+        <div id="7" class="cell"> </div>
+        <div id="8" class="cell"> </div>
       </div>
-      <button id="new-game-button" class="game-button hidden">New Game</button>
     </div>
+    <div class="notifications-window">
+      <p class="notifications"></p>
+    </div>
+    <button id="new-game-button" class="game-button hidden">New Game</button>
 
     <form id="sign-up-form" class="sign-up-display"> Sign-up
       <input name="credentials[email]" type="email" placeholder="Email" />
       <input name="credentials[password]" type="password" placeholder="Password" />
       <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation" />
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Submit" class="submit"/>
     </form>
 
     <form id="sign-in-form" class="sign-in-display hidden"> Sign-in
       <input name="credentials[email]" type="email" placeholder="Email" />
       <input name="credentials[password]" type="password" placeholder="Password" />
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Submit" class="submit"/>
     </form>
 
     <!-- Change Password Modal -->
