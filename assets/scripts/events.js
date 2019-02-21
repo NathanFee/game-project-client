@@ -49,7 +49,7 @@ const calcUserStats = function () {
   const oWins = games.filter(game => checkWin(game, 'O'))
   const draws = games.filter(game => checkDraw(game))
 
-  ui.showUserStats(`Wins:${xWins.length}  Loses:${oWins.length}  Draws:${draws.length}`)
+  ui.showUserStats(`Wins: ${xWins.length}  Loses: ${oWins.length}  Draws: ${draws.length}`)
 }
 
 const getCurrentPlayersMark = function (game) {

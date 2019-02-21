@@ -4,13 +4,27 @@ const store = require('./store.js')
 
 const markCellUi = (cellID, playersMark) => {
   $('#' + cellID).html(`<h1>${playersMark}</h1>`)
+  // A move was made, enable new game button
+  $('#new-game-button').removeAttr('disabled')
 }
 
-const notifyUser = (text) => $('.notifications').text(text)
+const blink = function (target) {
+  $(target).toggleClass('blink')
+  setTimeout(() => {
+    $(target).toggleClass('blink')
+  }, 300)
+}
+
+const notifyUser = (text) => {
+  $('.notifications').text(text)
+  blink('.notifications')
+}
 
 const newGameSuccess = function (responseData) {
+  // A new game was created, disable new game button
+  $('#new-game-button').attr('disabled', 'disabled')
+  // Store the new game
   store.user.game = responseData.game
-  store.user.games = {}
   $('#user-message').html('')
   $('.notifications-window').removeClass('hidden')
   resetBoard()

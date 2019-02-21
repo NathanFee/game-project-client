@@ -56,6 +56,7 @@ const signOutSuccess = () => {
   $('.navbar-nav').addClass('hidden')
   $('.notifications-window').addClass('hidden')
   $('.swap-form-display').removeClass('hidden')
+  $('#new-game-button').removeAttr('disabled')
   store.user = {}
   showSignUpForm()
   removeMessage()
@@ -72,6 +73,7 @@ const showSignInForm = function () {
   $('.sign-in-display').removeClass('hidden')
   $('.sign-in-button').addClass('hidden')
   $('.sign-up-button').removeClass('hidden')
+  $('form').trigger('reset')
   $('.swap-form-message').html('Need an account?')
 }
 
@@ -80,14 +82,30 @@ const showSignUpForm = function () {
   $('.sign-up-display').removeClass('hidden')
   $('.sign-up-button').addClass('hidden')
   $('.sign-in-button').removeClass('hidden')
+  $('form').trigger('reset')
   $('.swap-form-message').html('Already have an account?')
 }
 
-const removeMessage = function () {
+const closeModal = function () {
+  $('#changePasswordModal').modal('toggle')
+  // wait until modal fades before reseting forms
   setTimeout(() => {
+    $('#change-password-form').trigger('reset')
+  }, 1500)
+}
+
+let timeOut = null
+
+const stopTimeout = function () {
+  clearTimeout(timeOut)
+}
+
+const removeMessage = function () {
+  stopTimeout()
+  timeOut = setTimeout(() => {
     $('#user-message').html('')
     $('#alert-message').html('')
-  }, 5000)
+  }, 3500)
 }
 
 module.exports = {
@@ -100,5 +118,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   showSignInForm,
-  showSignUpForm
+  showSignUpForm,
+  closeModal
 }

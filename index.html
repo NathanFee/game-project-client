@@ -28,8 +28,8 @@
             UserName
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a id="sign-out-link" class="dropdown-item" href="#">Sign-out</a>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal">Change password</a>
+            <a id="sign-out-link" class="dropdown-item" href="#">Sign-Out</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal">Change Password</a>
             <a id="user-stats-link"class="dropdown-item" href="#" data-toggle="modal" data-target="#userStatsModal">Game Stats</a>
           </div>
         </li>
@@ -61,18 +61,18 @@
     <div class="notifications-window">
       <p class="notifications"></p>
     </div>
-    <button id="new-game-button" class="game-button hidden">New Game</button>
+    <button id="new-game-button" class="btn btn-lg game-button hidden">New Game</button>
 
     <form id="sign-up-form" class="sign-up-display"> Sign-up
-      <input name="credentials[email]" type="email" placeholder="Email" />
-      <input name="credentials[password]" type="password" placeholder="Password" />
-      <input name="credentials[password_confirmation]" type="password" placeholder="password confirmation" />
+      <input name="credentials[email]" type="email" placeholder="Email" required/>
+      <input name="credentials[password]" type="password" placeholder="Password" required/>
+      <input name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation" required/>
       <input type="submit" value="Submit" class="submit"/>
     </form>
 
     <form id="sign-in-form" class="sign-in-display hidden"> Sign-in
-      <input name="credentials[email]" type="email" placeholder="Email" />
-      <input name="credentials[password]" type="password" placeholder="Password" />
+      <input name="credentials[email]" type="email" placeholder="Email" required/>
+      <input name="credentials[password]" type="password" placeholder="Password" required/>
       <input type="submit" value="Submit" class="submit"/>
     </form>
 
@@ -89,14 +89,14 @@
 
           <div class="modal-body">
             <form id="change-password-form">
-              <input name="passwords[old]" type="password" placeholder="Old Password" />
-              <input name="passwords[new]" type="password" placeholder="New Password" />
+              <input name="passwords[old]" type="password" placeholder="Old Password" required/>
+              <input name="passwords[new]" type="password" placeholder="New Password" required/>
             </form>
             <div id="alert-message"></div>
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary close-modal">Close</button>
             <button type="submit" form="change-password-form" class="btn btn-primary">Submit</button>
           </div>
         </div>
@@ -115,7 +115,7 @@
           </div>
 
           <div id="user-stats-viewer" class="modal-body">
-
+            Loading...
           </div>
 
           <div class="modal-footer">
