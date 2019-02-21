@@ -8,7 +8,17 @@ const markCellUi = (cellID, playersMark) => {
   $('#new-game-button').removeAttr('disabled')
 }
 
-const notifyUser = (text) => $('.notifications').text(text)
+const blink = function (target) {
+  $(target).toggleClass('blink')
+  setTimeout(() => {
+    $(target).toggleClass('blink')
+  }, 300)
+}
+
+const notifyUser = (text) => {
+  $('.notifications').text(text)
+  blink('.notifications')
+}
 
 const newGameSuccess = function (responseData) {
   // A new game was created, disable new game button
