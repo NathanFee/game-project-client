@@ -91,7 +91,7 @@ const closeModal = function () {
   // wait until modal fades before reseting forms
   setTimeout(() => {
     $('#change-password-form').trigger('reset')
-  }, 2000)
+  }, 1500)
 }
 
 let timeOut = null
