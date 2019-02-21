@@ -66,6 +66,14 @@ const getGamesFailure = function () {
   $('#user-message').html('Error failed to get games!')
 }
 
+const closeStatsModal = function () {
+  $('#userStatsModal').modal('toggle')
+  // wait until modal fades before changing
+  setTimeout(() => {
+    $('#user-stats-viewer').html('Loading...')
+  }, 1500)
+}
+
 module.exports = {
   markCellUi,
   notifyUser,
@@ -75,5 +83,6 @@ module.exports = {
   updateGamesFailure,
   getGamesSuccess,
   getGamesFailure,
-  showUserStats
+  showUserStats,
+  closeStatsModal
 }

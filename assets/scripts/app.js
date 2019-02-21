@@ -22,6 +22,7 @@ $(() => {
 
   $('#new-game-button').on('click', events.onNewGame)
   $('#user-stats-link').on('click', events.onUserStats)
+  $('.close-stats-modal').on('click', events.onCloseStatsModal)
 
   // authorization
   $('#sign-up-form').on('submit', authEvents.onSignUp)
@@ -31,5 +32,5 @@ $(() => {
 
   $('.sign-in-button').on('click', authEvents.onSignInButton)
   $('.sign-up-button').on('click', authEvents.onSignUpButton)
-  $('.close-modal').on('click', authEvents.onCloseModal)
+  $('.close-password-modal').on('click', authEvents.onClosePasswordModal)
 })

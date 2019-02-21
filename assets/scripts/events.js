@@ -106,10 +106,15 @@ const markCell = function (cellID, game) {
   }
 }
 
+const onCloseStatsModal = function () {
+  ui.closeStatsModal()
+}
+
 module.exports = {
   getFormFields,
   onClickCell,
   onUpdateGame,
   onNewGame,
-  onUserStats
+  onUserStats,
+  onCloseStatsModal
 }
