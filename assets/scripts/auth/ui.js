@@ -86,6 +86,14 @@ const showSignUpForm = function () {
   $('.swap-form-message').html('Already have an account?')
 }
 
+const closeModal = function () {
+  $('#changePasswordModal').modal('toggle')
+  // wait until modal fades before reseting forms
+  setTimeout(() => {
+    $('#change-password-form').trigger('reset')
+  }, 2000)
+}
+
 let timeOut = null
 
 const stopTimeout = function () {
@@ -110,5 +118,6 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   showSignInForm,
-  showSignUpForm
+  showSignUpForm,
+  closeModal
 }

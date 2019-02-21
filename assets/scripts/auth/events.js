@@ -51,11 +51,16 @@ const onSignUpButton = function () {
   ui.showSignUpForm()
 }
 
+const onCloseModal = function () {
+  ui.closeModal()
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
   onChangePassword,
   onSignInButton,
-  onSignUpButton
+  onSignUpButton,
+  onCloseModal
 }

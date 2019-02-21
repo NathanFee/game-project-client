@@ -31,4 +31,5 @@ $(() => {
 
   $('.sign-in-button').on('click', authEvents.onSignInButton)
   $('.sign-up-button').on('click', authEvents.onSignUpButton)
+  $('.close-modal').on('click', authEvents.onCloseModal)
 })
