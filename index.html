@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe|ZCOOL+QingKe+HuangYou" rel="stylesheet">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand navbar-light bg-light">
+    <span class="navbar-text">
+      <img src="https://desenio.com/bilder/artiklar/zoom/7805_1.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+      Tic-Tac-Toe
+    </span>
+    <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarNavDropdown">
+      <ul class="navbar-nav hidden">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            UserName
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a id="sign-out-link" class="dropdown-item" href="#">Sign-Out</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#changePasswordModal">Change Password</a>
+            <a id="user-stats-link"class="dropdown-item" href="#" data-toggle="modal" data-target="#userStatsModal">Game Stats</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Tic-Tac-Toe</h1>
+  </header>
+
+  <main>
+
+    <div class="embed-responsive embed-responsive-1by1 game-area hidden">
+      <div id='game-board' class="embed-responsive-item game-board hidden">
+        <div id="0" class="cell"></div>
+        <div id="1" class="cell"></div>
+        <div id="2" class="cell"></div>
+
+        <div id="3" class="cell"></div>
+        <div id="4" class="cell"></div>
+        <div id="5" class="cell"></div>
+
+        <div id="6" class="cell"></div>
+        <div id="7" class="cell"></div>
+        <div id="8" class="cell"></div>
+      </div>
+    </div>
+    <div class="notifications-window">
+      <p class="notifications"></p>
+    </div>
+    <button id="new-game-button" class="btn btn-lg game-button hidden">New Game</button>
+
+    <form id="sign-up-form" class="sign-up-display"> Sign-up
+      <input name="credentials[email]" type="email" placeholder="Email" required/>
+      <input name="credentials[password]" type="password" placeholder="Password" required/>
+      <input name="credentials[password_confirmation]" type="password" placeholder="Password Confirmation" required/>
+      <input type="submit" value="Submit" class="submit"/>
+    </form>
+
+    <form id="sign-in-form" class="sign-in-display hidden"> Sign-in
+      <input name="credentials[email]" type="email" placeholder="Email" required/>
+      <input name="credentials[password]" type="password" placeholder="Password" required/>
+      <input type="submit" value="Submit" class="submit"/>
+    </form>
+
+    <!-- Change Password Modal -->
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="changePasswordModalCenterTitle">Change Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form id="change-password-form">
+              <input name="passwords[old]" type="password" placeholder="Old Password" required/>
+              <input name="passwords[new]" type="password" placeholder="New Password" required/>
+            </form>
+            <div id="alert-message"></div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close-password-modal">Close</button>
+            <button type="submit" form="change-password-form" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- User Stats Modal -->
+    <div class="modal fade" id="userStatsModal" tabindex="-1" role="dialog" aria-labelledby="userStatsModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="userStatsModalCenterTitle">User Stats</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div id="user-stats-viewer" class="modal-body">
+            Loading...
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary close-stats-modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-message-display">
+      <p id="user-message"></p>
+    </div>
+
+    <div class="swap-form-display">
+      <p class="swap-form-message">Already have an account?</p>
+      <a href="#" class="sign-in-button">Sign-in</a>
+      <a href="#" class="sign-up-button hidden">Sign-up</a>
+    </div>
+
+  </main>
+  <!--Footer borroed from GA pre-course work -->
+  <footer class="navbar fixed-bottom navbar-light bg-light">
+    <p class="message">Created by Nathan J Fee @ <a href="https://generalassemb.ly/" class="ga-link">GA</a></p>
+  </footer>
+
+</body>
+
+</html>
